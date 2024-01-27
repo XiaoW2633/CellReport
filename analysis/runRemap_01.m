@@ -10,7 +10,7 @@
 
 %% Before running the code, set the correct paths
 clear; close all;
-running_root = '/Users/wangxiao/Desktop/matlab/LIP-FEF/'; % Xiao's path
+running_root = '/Users/wangxiao/Desktop/model/LIP-FEF/'; % Xiao's path
 % Go to the right folder and add the path.
 cd(running_root);
 addpath(pwd);
@@ -165,9 +165,9 @@ tot_rfvec = permute(tot_rfvec,[1,3,2]); %(timebin,Numofcell,9);
 % compute the vectors' directions and magnitudes.
 outputPolar  = vec2angle(ploar_vec_rf,para);
  %polar plot
- %ppolar = drawPolar(outputPolar,para);
+ ppolar = drawPolar(outputPolar,para);
 % vector plot
-%drawVecplot(ploar_vec_rf,outputPolar,para); %
+drawVecplot(ploar_vec_rf,outputPolar,para); %
 % plot time course figure
 plot_areaerrorbar(time_shift_mag, time_shift_direc,outputPolar ,para);
 savename=[para.results_root,'plots/',para.brain, para.RFtime,para.align,'_sld_300ms.mat']; %% 300ms means time from saccade/probe onset.
